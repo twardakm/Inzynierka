@@ -91,7 +91,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 	m_wndOutput.EnableDocking(CBRS_ALIGN_ANY);
 	DockPane(&m_wndOutput);
-	m_wndProperties.EnableDocking(CBRS_ALIGN_ANY);
+	m_wndProperties.EnableDocking(FALSE);
 	DockPane(&m_wndProperties);
 
 
@@ -99,7 +99,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerOffice2007));
 
 	// set the visual style to be used the by the visual manager
-	CMFCVisualManagerOffice2007::SetStyle(CMFCVisualManagerOffice2007::Office2007_LunaBlue);
+	CMFCVisualManagerOffice2007::SetStyle(CMFCVisualManagerOffice2007::Office2007_Silver);
 
 	return 0;
 }
@@ -229,6 +229,9 @@ void CMainFrame::OnSettingChange(UINT uFlags, LPCTSTR lpszSection)
 
 void CMainFrame::OnExit()
 {
+	if (m_wndProperties.GetColorPreview())
+		MessageBox(_T("Cos tam"));
+
 	// same as click on main window close box
 	ASSERT(AfxGetMainWnd() != NULL);
 	AfxGetMainWnd()->SendMessage(WM_CLOSE);

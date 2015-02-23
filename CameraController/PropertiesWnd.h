@@ -48,6 +48,9 @@ protected:
 public:
 	virtual ~CPropertiesWnd();
 
+	// return properties
+	bool GetColorPreview();
+
 protected:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	afx_msg void OnSize(UINT nType, int cx, int cy);
