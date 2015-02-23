@@ -78,57 +78,6 @@
           <INDEX_LARGE>3</INDEX_LARGE>
         </ELEMENT>
         <ELEMENT>
-          <ELEMENT_NAME>Button</ELEMENT_NAME>
-          <ID>
-            <NAME>ID_FILE_PRINT</NAME>
-            <VALUE>57607</VALUE>
-          </ID>
-          <TEXT>Print</TEXT>
-          <KEYS>P</KEYS>
-          <KEYS_MENU>W</KEYS_MENU>
-          <INDEX_SMALL>4</INDEX_SMALL>
-          <INDEX_LARGE>4</INDEX_LARGE>
-          <ELEMENTS>
-            <ELEMENT>
-              <ELEMENT_NAME>Label</ELEMENT_NAME>
-              <TEXT>Preview and print the document</TEXT>
-            </ELEMENT>
-            <ELEMENT>
-              <ELEMENT_NAME>Button</ELEMENT_NAME>
-              <ID>
-                <NAME>ID_FILE_PRINT_DIRECT</NAME>
-                <VALUE>57608</VALUE>
-              </ID>
-              <TEXT>&amp;Quick Print</TEXT>
-              <INDEX_SMALL>5</INDEX_SMALL>
-              <INDEX_LARGE>5</INDEX_LARGE>
-              <ALWAYS_DESCRIPTION>TRUE</ALWAYS_DESCRIPTION>
-            </ELEMENT>
-            <ELEMENT>
-              <ELEMENT_NAME>Button</ELEMENT_NAME>
-              <ID>
-                <NAME>ID_FILE_PRINT_PREVIEW</NAME>
-                <VALUE>57609</VALUE>
-              </ID>
-              <TEXT>Print Pre&amp;view</TEXT>
-              <INDEX_SMALL>6</INDEX_SMALL>
-              <INDEX_LARGE>6</INDEX_LARGE>
-              <ALWAYS_DESCRIPTION>TRUE</ALWAYS_DESCRIPTION>
-            </ELEMENT>
-            <ELEMENT>
-              <ELEMENT_NAME>Button</ELEMENT_NAME>
-              <ID>
-                <NAME>ID_FILE_PRINT_SETUP</NAME>
-                <VALUE>57606</VALUE>
-              </ID>
-              <TEXT>Print Set&amp;up</TEXT>
-              <INDEX_SMALL>7</INDEX_SMALL>
-              <INDEX_LARGE>7</INDEX_LARGE>
-              <ALWAYS_DESCRIPTION>TRUE</ALWAYS_DESCRIPTION>
-            </ELEMENT>
-          </ELEMENTS>
-        </ELEMENT>
-        <ELEMENT>
           <ELEMENT_NAME>Button_Main_Panel</ELEMENT_NAME>
           <ID>
             <NAME>ID_APP_EXIT</NAME>

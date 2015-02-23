@@ -39,9 +39,6 @@
     <ClInclude Include="Resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CalendarBar.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CameraController.cpp">
@@ -59,23 +56,6 @@
     <ClCompile Include="CameraControllerView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CalendarBar.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Midl Include="CameraController.idl">
-      <Filter>Source Files</Filter>
-    </Midl>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="CameraController.reg" />
-    <None Include="res\ribbon.mfcribbon-ms">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\CameraController.rc2">
-      <Filter>Resource Files</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="CameraController.rc">
@@ -83,24 +63,6 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\nav_large.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="res\nav_large_hc.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="res\pages.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="res\pages_hc.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="res\pages_small.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="res\pages_small_hc.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
     <Image Include="res\info.bmp">
       <Filter>Resource Files</Filter>
     </Image>
@@ -134,5 +96,13 @@
     <Image Include="res\Toolbar256.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\ribbon.mfcribbon-ms">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\CameraController.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

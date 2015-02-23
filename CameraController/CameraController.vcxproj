@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{07943972-490D-4CA6-8781-FF058E1C06D7}</ProjectGuid>
+    <ProjectGuid>{0C40A485-F57B-4280-BCBF-796C73BAEF7B}</ProjectGuid>
     <RootNamespace>CameraController</RootNamespace>
     <Keyword>MFCProj</Keyword>
   </PropertyGroup>
@@ -58,14 +58,11 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <RegisterOutput>true</RegisterOutput>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
       <ValidateAllParameters>true</ValidateAllParameters>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <TypeLibraryName>$(IntDir)CameraController.tlb</TypeLibraryName>
-      <HeaderFileName>CameraController_h.h</HeaderFileName>
     </Midl>
     <ResourceCompile>
       <Culture>0x0409</Culture>
@@ -88,14 +85,11 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <RegisterOutput>true</RegisterOutput>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
       <ValidateAllParameters>true</ValidateAllParameters>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <TypeLibraryName>$(IntDir)CameraController.tlb</TypeLibraryName>
-      <HeaderFileName>CameraController_h.h</HeaderFileName>
     </Midl>
     <ResourceCompile>
       <Culture>0x0409</Culture>
@@ -107,7 +101,6 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CalendarBar.h" />
     <ClInclude Include="CameraController.h" />
     <ClInclude Include="CameraControllerDoc.h" />
     <ClInclude Include="CameraControllerView.h" />
@@ -117,7 +110,6 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CalendarBar.cpp" />
     <ClCompile Include="CameraController.cpp" />
     <ClCompile Include="CameraControllerDoc.cpp" />
     <ClCompile Include="CameraControllerView.cpp" />
@@ -126,14 +118,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Midl Include="CameraController.idl" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="CameraController.reg" />
-    <None Include="res\CameraController.rc2" />
-    <None Include="res\ribbon.mfcribbon-ms" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="CameraController.rc" />
@@ -146,16 +130,14 @@
     <Image Include="res\filesmall.bmp" />
     <Image Include="res\info.bmp" />
     <Image Include="res\main.bmp" />
-    <Image Include="res\nav_large.bmp" />
-    <Image Include="res\nav_large_hc.bmp" />
-    <Image Include="res\pages.bmp" />
-    <Image Include="res\pages_hc.bmp" />
-    <Image Include="res\pages_small.bmp" />
-    <Image Include="res\pages_small_hc.bmp" />
     <Image Include="res\Toolbar.bmp" />
     <Image Include="res\Toolbar256.bmp" />
     <Image Include="res\writelarge.bmp" />
     <Image Include="res\writesmall.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\CameraController.rc2" />
+    <None Include="res\ribbon.mfcribbon-ms" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

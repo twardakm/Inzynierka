@@ -36,21 +36,6 @@ BEGIN_MESSAGE_MAP(CCameraControllerDoc, CDocument)
 	ON_UPDATE_COMMAND_UI(ID_FILE_SEND_MAIL, &CCameraControllerDoc::OnUpdateFileSendMail)
 END_MESSAGE_MAP()
 
-BEGIN_DISPATCH_MAP(CCameraControllerDoc, CDocument)
-END_DISPATCH_MAP()
-
-// Note: we add support for IID_ICameraController to support typesafe binding
-//  from VBA.  This IID must match the GUID that is attached to the 
-//  dispinterface in the .IDL file.
-
-// {2B3738C2-BE23-41D6-BD43-23B18B698984}
-static const IID IID_ICameraController =
-{ 0x2B3738C2, 0xBE23, 0x41D6, { 0xBD, 0x43, 0x23, 0xB1, 0x8B, 0x69, 0x89, 0x84 } };
-
-BEGIN_INTERFACE_MAP(CCameraControllerDoc, CDocument)
-	INTERFACE_PART(CCameraControllerDoc, IID_ICameraController, Dispatch)
-END_INTERFACE_MAP()
-
 
 // CCameraControllerDoc construction/destruction
 
@@ -58,14 +43,10 @@ CCameraControllerDoc::CCameraControllerDoc()
 {
 	// TODO: add one-time construction code here
 
-	EnableAutomation();
-
-	AfxOleLockApp();
 }
 
 CCameraControllerDoc::~CCameraControllerDoc()
 {
-	AfxOleUnlockApp();
 }
 
 BOOL CCameraControllerDoc::OnNewDocument()

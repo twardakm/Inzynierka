@@ -33,8 +33,6 @@ BEGIN_MESSAGE_MAP(CCameraControllerApp, CWinAppEx)
 	// Standard file based document commands
 	ON_COMMAND(ID_FILE_NEW, &CWinAppEx::OnFileNew)
 	ON_COMMAND(ID_FILE_OPEN, &CWinAppEx::OnFileOpen)
-	// Standard print setup command
-	ON_COMMAND(ID_FILE_PRINT_SETUP, &CWinAppEx::OnFilePrintSetup)
 END_MESSAGE_MAP()
 
 
@@ -42,8 +40,6 @@ END_MESSAGE_MAP()
 
 CCameraControllerApp::CCameraControllerApp()
 {
-	m_bHiColorIcons = TRUE;
-
 	// TODO: replace application ID string below with unique ID string; recommended
 	// format for string is CompanyName.ProductName.SubProduct.VersionInformation
 	SetAppID(_T("CameraController.AppID.NoVersion"));
@@ -55,34 +51,19 @@ CCameraControllerApp::CCameraControllerApp()
 // The one and only CCameraControllerApp object
 
 CCameraControllerApp theApp;
-// This identifier was generated to be statistically unique for your app
-// You may change it if you prefer to choose a specific identifier
-
-// {CE9A3A42-58BA-4F06-BE97-3B8C38634F19}
-static const CLSID clsid =
-{ 0xCE9A3A42, 0x58BA, 0x4F06, { 0xBE, 0x97, 0x3B, 0x8C, 0x38, 0x63, 0x4F, 0x19 } };
-
-const GUID CDECL _tlid = { 0x77F61B56, 0x70BF, 0x46F4, { 0xB9, 0xD4, 0x31, 0xF, 0x7A, 0xB2, 0x8E, 0x19 } };
-const WORD _wVerMajor = 1;
-const WORD _wVerMinor = 0;
 
 
 // CCameraControllerApp initialization
 
 BOOL CCameraControllerApp::InitInstance()
 {
-	// InitCommonControlsEx() is required on Windows XP if an application
-	// manifest specifies use of ComCtl32.dll version 6 or later to enable
-	// visual styles.  Otherwise, any window creation will fail.
-	INITCOMMONCONTROLSEX InitCtrls;
-	InitCtrls.dwSize = sizeof(InitCtrls);
-	// Set this to include all the common control classes you want to use
-	// in your application.
-	InitCtrls.dwICC = ICC_WIN95_CLASSES;
-	InitCommonControlsEx(&InitCtrls);
-
 	CWinAppEx::InitInstance();
 
+	if (!AfxSocketInit())
+	{
+		AfxMessageBox(IDP_SOCKETS_INIT_FAILED);
+		return FALSE;
+	}
 
 	// Initialize OLE libraries
 	if (!AfxOleInit())
@@ -110,7 +91,6 @@ BOOL CCameraControllerApp::InitInstance()
 
 
 	InitContextMenuManager();
-	InitShellManager();
 
 	InitKeyboardManager();
 
@@ -131,13 +111,6 @@ BOOL CCameraControllerApp::InitInstance()
 	if (!pDocTemplate)
 		return FALSE;
 	AddDocTemplate(pDocTemplate);
-	// Connect the COleTemplateServer to the document template
-	//  The COleTemplateServer creates new documents on behalf
-	//  of requesting OLE containers by using information
-	//  specified in the document template
-	m_server.ConnectTemplate(clsid, pDocTemplate, TRUE);
-		// Note: SDI applications register server objects only if /Embedding
-		//   or /Automation is present on the command line
 
 
 	// Parse command line for standard shell commands, DDE, file open
@@ -145,32 +118,6 @@ BOOL CCameraControllerApp::InitInstance()
 	ParseCommandLine(cmdInfo);
 
 
-	// App was launched with /Embedding or /Automation switch.
-	// Run app as automation server.
-	if (cmdInfo.m_bRunEmbedded || cmdInfo.m_bRunAutomated)
-	{
-		// Register all OLE server factories as running.  This enables the
-		//  OLE libraries to create objects from other applications
-		COleTemplateServer::RegisterAll();
-
-		// Don't show the main window
-		return TRUE;
-	}
-	// App was launched with /Unregserver or /Unregister switch.  Unregister
-	// typelibrary.  Other unregistration occurs in ProcessShellCommand().
-	else if (cmdInfo.m_nShellCommand == CCommandLineInfo::AppUnregister)
-	{
-		m_server.UpdateRegistry(OAT_DISPATCH_OBJECT, NULL, NULL, FALSE);
-		AfxOleUnregisterTypeLib(_tlid, _wVerMajor, _wVerMinor);
-	}
-	// App was launched standalone or with other switches (e.g. /Register
-	// or /Regserver).  Update registry entries, including typelibrary.
-	else
-	{
-		m_server.UpdateRegistry(OAT_DISPATCH_OBJECT);
-		COleObjectFactory::UpdateRegistryAll();
-		AfxOleRegisterTypeLib(AfxGetInstanceHandle(), _tlid);
-	}
 
 	// Dispatch commands specified on the command line.  Will return FALSE if
 	// app was launched with /RegServer, /Register, /Unregserver or /Unregister.

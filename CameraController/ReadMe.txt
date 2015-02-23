@@ -46,16 +46,6 @@ res\CameraController.rc2
     Visual C++. You should place all resources not editable by
     the resource editor in this file.
 
-CameraController.reg
-    This is an example .reg file that shows you the kind of registration
-    settings the framework will set for you.  You can use this as a .reg
-    file to go along with your application or just delete it and rely
-    on the default RegisterShellFileTypes registration.
-
-CameraController.idl
-    This file contains the Interface Description Language source code for the
-    type library of your application.
-
 /////////////////////////////////////////////////////////////////////////////
 
 For the main frame window:
@@ -94,13 +84,12 @@ Other Features:
 ActiveX Controls
     The application includes support to use ActiveX controls.
 
-Printing and Print Preview support
-    The application wizard has generated code to handle the print, print setup, and print preview
-    commands by calling member functions in the CView class from the MFC library.
-
 MAPI support
     The generated project contains the code needed to create, manipulate, transfer and
     store mail messages.
+
+Windows Sockets
+    The application has support for establishing communications over TCP/IP networks.
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -114,13 +103,6 @@ Resource.h
     This is the standard header file, which defines new resource IDs.
     Microsoft Visual C++ reads and updates this file.
 
-CameraController.manifest
-	Application manifest files are used by Windows XP to describe an applications
-	dependency on specific versions of Side-by-Side assemblies. The loader uses this
-	information to load the appropriate assembly from the assembly cache or private
-	from the application. The Application manifest  maybe included for redistribution
-	as an external .manifest file that is installed in the same folder as the application
-	executable or it may be included in the executable in the form of a resource.
 /////////////////////////////////////////////////////////////////////////////
 
 Other notes:
