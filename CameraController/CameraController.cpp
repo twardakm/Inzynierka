@@ -40,6 +40,8 @@ END_MESSAGE_MAP()
 
 CCameraControllerApp::CCameraControllerApp()
 {
+	m_bHiColorIcons = TRUE;
+
 	// TODO: replace application ID string below with unique ID string; recommended
 	// format for string is CompanyName.ProductName.SubProduct.VersionInformation
 	SetAppID(_T("CameraController.AppID.NoVersion"));
@@ -51,6 +53,16 @@ CCameraControllerApp::CCameraControllerApp()
 // The one and only CCameraControllerApp object
 
 CCameraControllerApp theApp;
+// This identifier was generated to be statistically unique for your app
+// You may change it if you prefer to choose a specific identifier
+
+// {99CA7A5F-46EA-4701-9031-789F0DD70747}
+static const CLSID clsid =
+{ 0x99CA7A5F, 0x46EA, 0x4701, { 0x90, 0x31, 0x78, 0x9F, 0xD, 0xD7, 0x7, 0x47 } };
+
+const GUID CDECL _tlid = { 0x8F4C3B5E, 0x5850, 0x434F, { 0xB3, 0x2D, 0xCE, 0x97, 0x2B, 0x8F, 0xAD, 0xB8 } };
+const WORD _wVerMajor = 1;
+const WORD _wVerMinor = 0;
 
 
 // CCameraControllerApp initialization
@@ -111,6 +123,13 @@ BOOL CCameraControllerApp::InitInstance()
 	if (!pDocTemplate)
 		return FALSE;
 	AddDocTemplate(pDocTemplate);
+	// Connect the COleTemplateServer to the document template
+	//  The COleTemplateServer creates new documents on behalf
+	//  of requesting OLE containers by using information
+	//  specified in the document template
+	m_server.ConnectTemplate(clsid, pDocTemplate, TRUE);
+		// Note: SDI applications register server objects only if /Embedding
+		//   or /Automation is present on the command line
 
 
 	// Parse command line for standard shell commands, DDE, file open
@@ -118,6 +137,32 @@ BOOL CCameraControllerApp::InitInstance()
 	ParseCommandLine(cmdInfo);
 
 
+	// App was launched with /Embedding or /Automation switch.
+	// Run app as automation server.
+	if (cmdInfo.m_bRunEmbedded || cmdInfo.m_bRunAutomated)
+	{
+		// Register all OLE server factories as running.  This enables the
+		//  OLE libraries to create objects from other applications
+		COleTemplateServer::RegisterAll();
+
+		// Don't show the main window
+		return TRUE;
+	}
+	// App was launched with /Unregserver or /Unregister switch.  Unregister
+	// typelibrary.  Other unregistration occurs in ProcessShellCommand().
+	else if (cmdInfo.m_nShellCommand == CCommandLineInfo::AppUnregister)
+	{
+		m_server.UpdateRegistry(OAT_DISPATCH_OBJECT, NULL, NULL, FALSE);
+		AfxOleUnregisterTypeLib(_tlid, _wVerMajor, _wVerMinor);
+	}
+	// App was launched standalone or with other switches (e.g. /Register
+	// or /Regserver).  Update registry entries, including typelibrary.
+	else
+	{
+		m_server.UpdateRegistry(OAT_DISPATCH_OBJECT);
+		COleObjectFactory::UpdateRegistryAll();
+		AfxOleRegisterTypeLib(AfxGetInstanceHandle(), _tlid);
+	}
 
 	// Dispatch commands specified on the command line.  Will return FALSE if
 	// app was launched with /RegServer, /Register, /Unregserver or /Unregister.

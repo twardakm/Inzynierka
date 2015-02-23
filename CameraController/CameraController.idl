@@ -1,0 +1,29 @@
+// CameraController.idl : type library source for CameraController.exe
+
+// This file will be processed by the MIDL compiler to produce the
+// type library (CameraController.tlb).
+
+[ uuid(8F4C3B5E-5850-434F-B32D-CE972B8FADB8), version(1.0) ]
+library CameraController
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	//  Primary dispatch interface for CCameraControllerDoc
+	
+	[ uuid(A7074FBF-8B55-469A-8746-A8C1ACBF08CB) ]
+	dispinterface ICameraController
+	{
+		properties:
+			
+		methods:
+	};
+
+	//  Class information for CCameraControllerDoc
+	
+	[ uuid(99CA7A5F-46EA-4701-9031-789F0DD70747) ]
+	coclass CCameraControllerDoc
+	{
+		[default] dispinterface ICameraController;
+	};
+};

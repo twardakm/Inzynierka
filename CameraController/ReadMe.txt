@@ -46,6 +46,16 @@ res\CameraController.rc2
     Visual C++. You should place all resources not editable by
     the resource editor in this file.
 
+CameraController.reg
+    This is an example .reg file that shows you the kind of registration
+    settings the framework will set for you.  You can use this as a .reg
+    file to go along with your application or just delete it and rely
+    on the default RegisterShellFileTypes registration.
+
+CameraController.idl
+    This file contains the Interface Description Language source code for the
+    type library of your application.
+
 /////////////////////////////////////////////////////////////////////////////
 
 For the main frame window:

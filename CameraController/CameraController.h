@@ -36,7 +36,10 @@ public:
 	virtual int ExitInstance();
 
 // Implementation
-	UINT  m_nAppLook;
+	COleTemplateServer m_server;
+		// Server object for document creation
+	BOOL  m_bHiColorIcons;
+
 	virtual void PreLoadState();
 	virtual void LoadCustomState();
 	virtual void SaveCustomState();
