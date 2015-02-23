@@ -1,0 +1,16 @@
+REGEDIT
+; This .REG file may be used by your SETUP program.
+;   If a SETUP program is not available, the entries below will be
+;   registered in your InitInstance automatically with a call to
+;   CWinApp::RegisterShellFileTypes and COleObjectFactory::UpdateRegistryAll.
+
+
+HKEY_CLASSES_ROOT\CameraController.Document = CameraController.Document
+
+
+HKEY_CLASSES_ROOT\CameraController.Document\CLSID = {CE9A3A42-58BA-4F06-BE97-3B8C38634F19}
+
+HKEY_CLASSES_ROOT\CLSID\{CE9A3A42-58BA-4F06-BE97-3B8C38634F19} = CameraController.Document
+HKEY_CLASSES_ROOT\CLSID\{CE9A3A42-58BA-4F06-BE97-3B8C38634F19}\ProgId = CameraController.Document
+
+HKEY_CLASSES_ROOT\CLSID\{CE9A3A42-58BA-4F06-BE97-3B8C38634F19}\LocalServer32 = CameraController.EXE
