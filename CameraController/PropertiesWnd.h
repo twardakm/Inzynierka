@@ -50,6 +50,7 @@ public:
 
 	// return properties
 	bool GetColorPreview();
+	CString GetVideoSource();
 
 protected:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);

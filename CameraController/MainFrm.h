@@ -15,6 +15,7 @@
 #pragma once
 #include "OutputWnd.h"
 #include "PropertiesWnd.h"
+#include "NoCloseCaptionBar.h"
 
 class CMainFrame : public CFrameWndEx
 {
@@ -48,7 +49,7 @@ protected:  // control bar embedded members
 	CMFCRibbonStatusBar  m_wndStatusBar;
 	COutputWnd        m_wndOutput;
 	CPropertiesWnd    m_wndProperties;
-	CMFCCaptionBar    m_wndCaptionBar;
+	CNoCloseCaptionBar    m_wndCaptionBar; // Caption Bar without close button
 
 // Generated message map functions
 protected:

@@ -96,6 +96,13 @@ int CPropertiesWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	// All commands will be routed via this control , not via the parent frame:
 	m_wndToolBar.SetRouteCommandsViaFrame(FALSE);
 
+	// Prevent from floating and remove close button
+	SetControlBarStyle(AFX_CBRS_RESIZE | AFX_CBRS_CLOSE);
+	RemoveCaptionButtons();
+
+	// Set Size
+	SetMinSize(CSize(300, 0));
+
 	AdjustLayout();
 	return 0;
 }
@@ -153,7 +160,6 @@ void CPropertiesWnd::InitPropList()
 	m_wndPropList.EnableDescriptionArea();
 	m_wndPropList.SetVSDotNetLook();
 	m_wndPropList.MarkModifiedProperties();
-	CPropertiesWnd::RemoveCaptionButtons();
 
 	CMFCPropertyGridProperty* pGroup1 = new CMFCPropertyGridProperty(_T("Camera Settings"));
 
@@ -208,4 +214,11 @@ bool CPropertiesWnd::GetColorPreview()
 	CMFCPropertyGridProperty *pGroup1 = m_wndPropList.GetProperty(0);
 	CMFCPropertyGridProperty *pProp = pGroup1->GetSubItem(0);
 	return (_variant_t) pProp->GetValue();
+}
+
+CString CPropertiesWnd::GetVideoSource()
+{
+	CMFCPropertyGridProperty *pGroup1 = m_wndPropList.GetProperty(0);
+	CMFCPropertyGridProperty *pProp = pGroup1->GetSubItem(1);
+	return pProp->GetValue();
 }

@@ -162,16 +162,8 @@ BOOL CMainFrame::CreateCaptionBar()
 	BOOL bNameValid;
 
 	CString strTemp, strTemp2;
-	bNameValid = strTemp.LoadString(IDS_CAPTION_BUTTON);
-	ASSERT(bNameValid);
-	m_wndCaptionBar.SetButton(strTemp, ID_TOOLS_OPTIONS, CMFCCaptionBar::ALIGN_LEFT, FALSE);
-	bNameValid = strTemp.LoadString(IDS_CAPTION_BUTTON_TIP);
-	ASSERT(bNameValid);
-	m_wndCaptionBar.SetButtonToolTip(strTemp);
 
-	bNameValid = strTemp.LoadString(IDS_CAPTION_TEXT);
-	ASSERT(bNameValid);
-	m_wndCaptionBar.SetText(strTemp, CMFCCaptionBar::ALIGN_LEFT);
+	m_wndCaptionBar.SetText(_T("Here will be displayed important notifications"), CMFCCaptionBar::ALIGN_LEFT);
 
 	m_wndCaptionBar.SetBitmap(IDB_INFO, RGB(255, 255, 255), FALSE, CMFCCaptionBar::ALIGN_LEFT);
 	bNameValid = strTemp.LoadString(IDS_CAPTION_IMAGE_TIP);
@@ -229,9 +221,6 @@ void CMainFrame::OnSettingChange(UINT uFlags, LPCTSTR lpszSection)
 
 void CMainFrame::OnExit()
 {
-	if (m_wndProperties.GetColorPreview())
-		MessageBox(_T("Cos tam"));
-
 	// same as click on main window close box
 	ASSERT(AfxGetMainWnd() != NULL);
 	AfxGetMainWnd()->SendMessage(WM_CLOSE);
