@@ -9,6 +9,8 @@ private:
 	CString Source;
 protected:
 	void ReadFromXML();
+	void SaveToXML();
+
 	bool BooleanFromCString(CString C);
 	CString CStringFromBoolean(bool B);
 public:

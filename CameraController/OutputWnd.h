@@ -40,6 +40,7 @@ public:
 	COutputWnd();
 
 	void UpdateFonts();
+	void PutText(CString text);
 
 // Attributes
 protected:

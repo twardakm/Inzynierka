@@ -26,7 +26,8 @@ protected: // create from serialization only
 	DECLARE_DYNCREATE(CMainFrame)
 
 // Attributes
-public:
+private:
+	Properties *ActualProperties;
 
 // Operations
 public:

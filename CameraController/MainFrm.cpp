@@ -43,10 +43,6 @@ END_MESSAGE_MAP()
 CMainFrame::CMainFrame()
 {
 	// TODO: add member initialization code here
-
-	// Initialize Properties class with smart pointer
-	std::unique_ptr<Properties> ActualProperties(new Properties());
-
 }
 
 CMainFrame::~CMainFrame()
@@ -108,6 +104,11 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 	// set the visual style to be used the by the visual manager
 	CMFCVisualManagerOffice2007::SetStyle(CMFCVisualManagerOffice2007::Office2007_Silver);
+
+	// Initialize Properties class with smart pointer
+	m_wndOutput.PutText(_T("Reading saved data from Properties.xml..."));
+	std::unique_ptr<Properties> ActualProperties(new Properties());
+	m_wndOutput.PutText(_T("OK"));
 
 	return 0;
 }
@@ -235,5 +236,4 @@ void CMainFrame::OnExit()
 
 void CMainFrame::OnSaveProperties()
 {
-
 }

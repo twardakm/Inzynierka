@@ -116,6 +116,11 @@ void COutputWnd::UpdateFonts()
 	m_wndOutputInfo.SetFont(&afxGlobalData.fontRegular);
 }
 
+void COutputWnd::PutText(CString text)
+{
+	m_wndOutputInfo.AddString(text);
+}
+
 /////////////////////////////////////////////////////////////////////////////
 // COutputList1
 
