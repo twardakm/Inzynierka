@@ -16,6 +16,7 @@
 #include "OutputWnd.h"
 #include "PropertiesWnd.h"
 #include "NoCloseCaptionBar.h"
+#include "Properties.h"
 
 class CMainFrame : public CFrameWndEx
 {
@@ -59,6 +60,7 @@ protected:
 	afx_msg void OnOptions();
 	afx_msg void OnSettingChange(UINT uFlags, LPCTSTR lpszSection);
 	afx_msg void OnExit();
+	afx_msg void OnSaveProperties();
 
 	DECLARE_MESSAGE_MAP()
 

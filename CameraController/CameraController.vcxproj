@@ -113,6 +113,7 @@
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="NoCloseCaptionBar.h" />
     <ClInclude Include="OutputWnd.h" />
+    <ClInclude Include="Properties.h" />
     <ClInclude Include="PropertiesWnd.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
@@ -125,6 +126,7 @@
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="NoCloseCaptionBar.cpp" />
     <ClCompile Include="OutputWnd.cpp" />
+    <ClCompile Include="Properties.cpp" />
     <ClCompile Include="PropertiesWnd.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -162,6 +164,9 @@
     <Image Include="res\Toolbar256.bmp" />
     <Image Include="res\writelarge.bmp" />
     <Image Include="res\writesmall.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Properties.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -25,7 +25,6 @@
 #define new DEBUG_NEW
 #endif
 
-
 // CCameraControllerApp
 
 BEGIN_MESSAGE_MAP(CCameraControllerApp, CWinAppEx)

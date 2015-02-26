@@ -200,7 +200,7 @@ void CPropertiesWnd::SetPropListFont()
 
 	afxGlobalData.GetNonClientMetrics(info);
 
-	lf.lfHeight = info.lfMenuFont.lfHeight;
+	lf.lfHeight = info.lfMenuFont.lfHeight-4;
 	lf.lfWeight = info.lfMenuFont.lfWeight;
 	lf.lfItalic = info.lfMenuFont.lfItalic;
 

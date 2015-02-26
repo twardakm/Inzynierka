@@ -14,8 +14,11 @@
 
 #include "stdafx.h"
 #include "CameraController.h"
+#include "Properties.h"
 
 #include "MainFrm.h"
+
+#include <memory>
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -31,6 +34,7 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
 	ON_UPDATE_COMMAND_UI(ID_VIEW_CAPTION_BAR, &CMainFrame::OnUpdateViewCaptionBar)
 	ON_COMMAND(ID_TOOLS_OPTIONS, &CMainFrame::OnOptions)
 	ON_COMMAND(ID_EXITBUTTON, &CMainFrame::OnExit)
+	ON_COMMAND(ID_SAVE_PROPERTIES, &CMainFrame::OnSaveProperties)
 	ON_WM_SETTINGCHANGE()
 END_MESSAGE_MAP()
 
@@ -39,6 +43,10 @@ END_MESSAGE_MAP()
 CMainFrame::CMainFrame()
 {
 	// TODO: add member initialization code here
+
+	// Initialize Properties class with smart pointer
+	std::unique_ptr<Properties> ActualProperties(new Properties());
+
 }
 
 CMainFrame::~CMainFrame()
@@ -212,7 +220,6 @@ void CMainFrame::OnOptions()
 	delete pOptionsDlg;
 }
 
-
 void CMainFrame::OnSettingChange(UINT uFlags, LPCTSTR lpszSection)
 {
 	CFrameWndEx::OnSettingChange(uFlags, lpszSection);
@@ -224,4 +231,9 @@ void CMainFrame::OnExit()
 	// same as click on main window close box
 	ASSERT(AfxGetMainWnd() != NULL);
 	AfxGetMainWnd()->SendMessage(WM_CLOSE);
+}
+
+void CMainFrame::OnSaveProperties()
+{
+
 }
